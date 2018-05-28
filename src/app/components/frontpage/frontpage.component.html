@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="calcContainer">
+    <div class="leftSide">
+      <form>
+        <div>Loan Amount</div>
+        <input [formControl]="amount" name="amount" min="1000" max="500000" type="number">
+        <div>Select loan start date</div>
+        <ng-datepicker [(ngModel)]="date" name="date" [options]="options"></ng-datepicker>
+        <div>Loan term in years</div>
+
+        <input [formControl]="years" min="1" max="40" name="years" type="number">
+        <div>Interest rate per year</div>
+        <input [formControl]="interestRate" min="1" name="interestRate" type="number">
+      </form>
+
+    </div>
+    <div class="rightSide">
+      <div class="wrapper">
+        <div class="center">Monthly payments</div>
+        <div class="superscript center">$
+          <div [(ngModel)]="payment" ngDefaultControl>{{payment}}</div>
+        </div>
+        <ul>
+          <li class="floatLeft">Total principal paid</li>
+          <li class="floatRight">${{amount.value}}</li>
+        </ul>
+        <hr>
+        <ul>
+          <li class="floatLeft">Total interest paid</li>
+          <li class="floatRight">${{totalInterestRounded}}</li>
+        </ul>
+        <button routerLink="/example">See loan examples</button>
+        <button (click)="showToggle()">Show amortization schedule</button>
+
+        <div class="clearFix"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="amortizationData" *ngIf="show">
+  <ul>
+    <li>payment id</li>
+    <li *ngFor="let part of loanData">{{part.id}}</li>
+  </ul>
+  <ul>
+    <li>date</li>
+    <li *ngFor="let part of loanData">{{part.paymentDate}}</li>
+  </ul>
+  <ul>
+    <li>remaining amount</li>
+    <li *ngFor="let part of loanData">{{part.remainingAmount}}</li>
+  </ul>
+  <ul>
+    <li>principal</li>
+    <li *ngFor="let part of loanData">{{part.principalPayment}}</li>
+  </ul>
+  <ul>
+    <li>interest</li>
+    <li *ngFor="let part of loanData">{{part.interestPayment}}</li>
+  </ul>
+  <ul>
+    <li>total payment</li>
+    <li *ngFor="let part of loanData">{{part.totalPayment}}</li>
+  </ul>
+  <ul>
+    <li>interest rate</li>
+    <li *ngFor="let part of loanData">{{(part.interestRate*1200)}}</li>
+  </ul>
+</div>

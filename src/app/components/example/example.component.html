@@ -1,0 +1,65 @@
+<div class="wrapper">
+  <div routerLink="/frontpage" class="return">Return</div>
+  <ul>
+    <li>payment id</li>
+    <li *ngFor="let part of loanData">{{part.id}}</li>
+  </ul>
+  <ul>
+    <li>date</li>
+    <li *ngFor="let part of loanData">{{part.paymentDate}}</li>
+  </ul>
+  <ul>
+    <li>remaining amount</li>
+    <li *ngFor="let part of loanData">{{part.remainingAmount}}</li>
+  </ul>
+  <ul>
+    <li>principal</li>
+    <li *ngFor="let part of loanData">{{part.principalPayment}}</li>
+  </ul>
+  <ul>
+    <li>interest</li>
+    <li *ngFor="let part of loanData">{{part.interestPayment}}</li>
+  </ul>
+  <ul>
+    <li>total payment</li>
+    <li *ngFor="let part of loanData">{{part.totalPayment}}</li>
+  </ul>
+  <ul>
+    <li>interest rate</li>
+    <li *ngFor="let part of loanData">{{part.interestRate*1200}}</li>
+  </ul>
+  <button (click)="csv()">Download example</button>
+  <hr>
+
+  <ul>
+    <li>payment id</li>
+    <li *ngFor="let part of loanDataChangedInterestRate">{{part.id}}</li>
+  </ul>
+  <ul>
+    <li>date</li>
+    <li *ngFor="let part of loanDataChangedInterestRate">{{part.paymentDate}}</li>
+  </ul>
+  <ul>
+    <li>remaining amount</li>
+    <li *ngFor="let part of loanDataChangedInterestRate">{{part.remainingAmount}}</li>
+  </ul>
+  <ul>
+    <li>principal</li>
+    <li *ngFor="let part of loanDataChangedInterestRate">{{part.principalPayment}}</li>
+  </ul>
+  <ul>
+    <li>interest</li>
+    <li *ngFor="let part of loanDataChangedInterestRate">{{part.interestPayment}}</li>
+  </ul>
+  <ul>
+    <li>total payment</li>
+    <li *ngFor="let part of loanDataChangedInterestRate">{{part.totalPayment}}</li>
+  </ul>
+  <ul>
+    <li>interest rate</li>
+    <li *ngFor="let part of loanDataChangedInterestRate">{{part.interestRate*1200}}</li>
+  </ul>
+  <button (click)="csv2()">Download example</button>
+
+</div>
+
